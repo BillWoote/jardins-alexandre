@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "id": "cmi93exwm0000bsd6rxx0la8p",
+      "email": "admin@jardinsalexandre.fr",
+      "password": "$2a$10$3k1F.EZpKte5eQjjYK1uUeIGKyqDi5YTT3C74pa8U5YmJ3nkq8fdC",
+      "name": "Administrateur",
+      "createdAt": "2025-11-21T16:47:03.718Z",
+      "updatedAt": "2025-11-21T16:47:03.718Z"
+    }
+  ],
+  "settings": [
+    {
+      "id": "cmi93exwt0004bsd6rwtmb9b0",
+      "key": "site_name",
+      "value": "Les Jardins d'Alexandre",
+      "type": "text"
+    },
+    {
+      "id": "cmi93exwu0005bsd6o736g5h3",
+      "key": "site_slogan",
+      "value": "Votre partenaire pour des espaces verts d'exception",
+      "type": "text"
+    },
+    {
+      "id": "cmi93exwv0006bsd6ubi5jhze",
+      "key": "contact_phone",
+      "value": "+33 6 12 34 56 78",
+      "type": "text"
+    },
+    {
+      "id": "cmi93exww0007bsd6dkyg1fmb",
+      "key": "contact_email",
+      "value": "contact@jardinsalexandre.fr",
+      "type": "text"
+    },
+    {
+      "id": "cmi93exww0008bsd6nnjrh83o",
+      "key": "facebook_url",
+      "value": "https://facebook.com/jardinsalexandre",
+      "type": "text"
+    },
+    {
+      "id": "cmi93exwx0009bsd6qdro9oo7",
+      "key": "instagram_url",
+      "value": "https://instagram.com/jardinsalexandre",
+      "type": "text"
+    },
+    {
+      "id": "setting-terrasse-img",
+      "key": "serviceTerrasseImage",
+      "value": "/accueil-terrasse.avif",
+      "type": "text"
+    },
+    {
+      "id": "setting-jardin-img",
+      "key": "serviceJardinImage",
+      "value": "/accueil-jardin.avif",
+      "type": "text"
+    },
+    {
+      "id": "setting-elagage-img",
+      "key": "serviceElagageImage",
+      "value": "/accueil-elagage.avif",
+      "type": "text"
+    }
+  ],
+  "projects": [
+    {
+      "id": "cmi93exwq0001bsd6j9xpxzj8",
+      "title": "Terrasse moderne à Paris 15ème",
+      "slug": "terrasse-moderne-paris-15",
+      "category": "terrasse",
+      "location": "Paris 15ème",
+      "description": "Aménagement complet d'une terrasse de 40m² avec deck en bois composite, végétalisation et éclairage intégré.",
+      "order": 1,
+      "published": true,
+      "createdAt": "2025-11-21T16:47:03.722Z",
+      "updatedAt": "2025-11-21T16:47:03.722Z",
+      "images": []
+    },
+    {
+      "id": "cmi93exws0002bsd6winrcprq",
+      "title": "Jardin japonais à Versailles",
+      "slug": "jardin-japonais-versailles",
+      "category": "jardin",
+      "location": "Versailles",
+      "description": "Création d'un jardin zen avec bassin, lanternes et végétaux authentiques.",
+      "order": 2,
+      "published": true,
+      "createdAt": "2025-11-21T16:47:03.724Z",
+      "updatedAt": "2025-11-21T16:47:03.724Z",
+      "images": []
+    },
+    {
+      "id": "cmi93exwt0003bsd6mqq78s0b",
+      "title": "Élagage de platanes à Neuilly",
+      "slug": "elagage-platanes-neuilly",
+      "category": "elagage",
+      "location": "Neuilly-sur-Seine",
+      "description": "Taille et mise en sécurité de trois platanes centenaires.",
+      "order": 3,
+      "published": true,
+      "createdAt": "2025-11-21T16:47:03.725Z",
+      "updatedAt": "2025-11-21T16:47:03.725Z",
+      "images": []
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "cmi93exwy000absd64fvzs01v",
+      "name": "Marie L.",
+      "location": "Paris 16ème",
+      "content": "Excellent travail sur notre terrasse ! L'équipe est professionnelle et à l'écoute. Le résultat dépasse nos attentes.",
+      "rating": 5,
+      "published": true,
+      "order": 1,
+      "createdAt": "2025-11-21T16:47:03.730Z"
+    },
+    {
+      "id": "cmi93exwz000bbsd6ebhsebfe",
+      "name": "Pierre D.",
+      "location": "Versailles",
+      "content": "Notre jardin a été transformé en véritable oasis. Merci pour votre créativité et votre expertise.",
+      "rating": 5,
+      "published": true,
+      "order": 2,
+      "createdAt": "2025-11-21T16:47:03.732Z"
+    },
+    {
+      "id": "cmi93exx0000cbsd6n0lfz9pe",
+      "name": "Sophie M.",
+      "location": "Neuilly",
+      "content": "Service impeccable pour l'élagage de nos arbres. Ponctuel, soigné et prix raisonnable.",
+      "rating": 5,
+      "published": true,
+      "order": 3,
+      "createdAt": "2025-11-21T16:47:03.732Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Montserrat:wght@300;600&amp;display=swap');
+      
+      .title {
+        font-family: 'Playfair Display', serif;
+        font-size: 64px;
+        font-weight: 700;
+        fill: #2d5016;
+        letter-spacing: 2px;
+      }
+      
+      .subtitle {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        fill: #5a7c3e;
+        letter-spacing: 8px;
+      }
+      
+      .leaf-decoration {
+        fill: #6b8e4e;
+      }
+    </style>
+  </defs>
+  
+  <!-- Décoration feuille gauche -->
+  <path class="leaf-decoration" d="M 80,180 Q 60,160 70,140 Q 75,130 85,135 Q 95,140 90,150 Q 85,160 80,180 Z" />
+  <path class="leaf-decoration" d="M 75,185 Q 55,170 60,150 Q 65,140 75,143 Q 85,146 82,156 Q 79,166 75,185 Z" />
+  
+  <!-- Texte principal "Les Jardins d'Alexandre" -->
+  <text x="400" y="200" text-anchor="middle" class="title">Les Jardins d'Alexandre</text>
+  
+  <!-- Ligne décorative -->
+  <line x1="200" y1="240" x2="600" y2="240" stroke="#6b8e4e" stroke-width="1" opacity="0.6"/>
+  
+  <!-- Sous-titre "ENTRETIEN - CRÉATION - ÉLAGAGE" -->
+  <text x="400" y="280" text-anchor="middle" class="subtitle">ENTRETIEN - CRÉATION - ÉLAGAGE</text>
+  
+  <!-- Décoration feuille droite -->
+  <path class="leaf-decoration" d="M 720,180 Q 740,160 730,140 Q 725,130 715,135 Q 705,140 710,150 Q 715,160 720,180 Z" />
+  <path class="leaf-decoration" d="M 725,185 Q 745,170 740,150 Q 735,140 725,143 Q 715,146 718,156 Q 721,166 725,185 Z" />
+  
+  <!-- Bordure élégante -->
+  <rect x="10" y="10" width="780" height="380" fill="none" stroke="#6b8e4e" stroke-width="2" rx="5" opacity="0.3"/>
+</svg>

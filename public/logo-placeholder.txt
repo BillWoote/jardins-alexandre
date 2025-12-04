@@ -1,0 +1,21 @@
+# Placeholder
+
+Ce fichier doit être remplacé par votre logo réel.
+
+## Instructions
+
+1. Supprimez ce fichier
+2. Ajoutez votre logo en format AVIF, PNG, ou SVG
+3. Nommez-le `logo.avif` (ou `logo.png`, `logo.svg`)
+
+## Formats acceptés
+
+- `logo.avif` - Format moderne (recommandé si vous l'avez)
+- `logo.png` - Avec fond transparent
+- `logo.svg` - Format vectoriel (idéal pour un logo)
+
+## Dimensions recommandées
+
+- Largeur : 200-400px
+- Hauteur : 60-120px
+- Fond transparent si possible
