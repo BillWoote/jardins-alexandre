@@ -21,9 +21,10 @@ interface Project {
 
 interface ProjectsPageProps {
   projects: Project[]
+  slogan?: string
 }
 
-export default function ProjectsClient({ projects }: ProjectsPageProps) {
+export default function ProjectsClient({ projects, slogan = "Découvrez notre portfolio de projets d'aménagements extérieurs" }: ProjectsPageProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('tous')
 
   const categories = [
@@ -43,7 +44,7 @@ export default function ProjectsClient({ projects }: ProjectsPageProps) {
       {/* Header */}
       <PageHero 
         title="Nos Réalisations" 
-        subtitle="Découvrez notre portfolio de projets d'aménagements extérieurs"
+        subtitle={slogan}
       />
 
       {/* Filters */}

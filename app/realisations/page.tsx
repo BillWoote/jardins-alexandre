@@ -18,5 +18,12 @@ export default async function RealisationsPage() {
     orderBy: { order: 'asc' },
   })
 
-  return <ProjectsClient projects={projects} />
+  // Fetch slogan from settings
+  const settings = await prisma.setting.findMany()
+  const settingsMap = Object.fromEntries(
+    settings.map(s => [s.key, s.value])
+  )
+  const realisationsSlogan = settingsMap.realisationsSlogan || "Découvrez notre portfolio de projets d'aménagements extérieurs"
+
+  return <ProjectsClient projects={projects} slogan={realisationsSlogan} />
 }

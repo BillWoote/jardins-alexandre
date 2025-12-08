@@ -1,13 +1,22 @@
 import nodemailer from 'nodemailer'
+import { sendEmailViaGraph } from './email-graph'
+
+// Configuration du provider d'email (GRAPH pour Office 365, SMTP pour autres)
+const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'SMTP'
 
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_SERVER_HOST,
   port: parseInt(process.env.EMAIL_SERVER_PORT || '587'),
-  secure: false,
+  secure: false, // false for STARTTLS, true for SSL
+  requireTLS: true, // Force STARTTLS
   auth: {
     user: process.env.EMAIL_SERVER_USER,
     pass: process.env.EMAIL_SERVER_PASSWORD,
   },
+  tls: {
+    ciphers: 'SSLv3',
+    rejectUnauthorized: false // Pour le développement, à retirer en production si possible
+  }
 })
 
 export interface ContactEmailData {
@@ -18,8 +27,11 @@ export interface ContactEmailData {
   message: string
 }
 
-export async function sendContactEmail(data: ContactEmailData) {
+export async function sendContactEmail(data: ContactEmailData, contactEmail?: string) {
   const { name, email, phone, service, message } = data
+  
+  // Utiliser l'email de la base de données ou fallback sur l'env
+  const recipientEmail = contactEmail || process.env.CONTACT_EMAIL || process.env.EMAIL_FROM!
 
   const htmlContent = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -60,12 +72,26 @@ ${message}
 Ce message a été envoyé depuis le formulaire de contact du site Les Jardins d'Alexandre.
   `
 
-  await transporter.sendMail({
-    from: process.env.EMAIL_FROM,
-    to: process.env.CONTACT_EMAIL,
-    replyTo: email,
-    subject: `Nouvelle demande de contact - ${service}`,
-    text: textContent,
-    html: htmlContent,
-  })
+  // Choix du provider d'email
+  if (EMAIL_PROVIDER === 'GRAPH') {
+    // Utilisation de Microsoft Graph API
+    console.log('📧 Envoi via Microsoft Graph API...')
+    await sendEmailViaGraph({
+      to: recipientEmail,
+      subject: `Nouvelle demande de contact - ${service}`,
+      html: htmlContent,
+      from: process.env.EMAIL_FROM,
+    })
+  } else {
+    // Utilisation de SMTP classique (Gmail, etc.)
+    console.log('📧 Envoi via SMTP...')
+    await transporter.sendMail({
+      from: process.env.EMAIL_FROM,
+      to: recipientEmail,
+      replyTo: email,
+      subject: `Nouvelle demande de contact - ${service}`,
+      text: textContent,
+      html: htmlContent,
+    })
+  }
 }

@@ -58,18 +58,6 @@ export default async function HomePage() {
       <section className="relative h-[400px] lg:h-[500px] flex items-center justify-center bg-gradient-to-br from-primary-900 to-primary-700">
         <div className="absolute inset-0 bg-black/30" />
         
-        {/* Logo à gauche - responsive size */}
-        <div className="absolute left-4 lg:left-8 xl:left-16 2xl:left-24 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
-          <div className="relative w-[250px] h-[193px] xl:w-[320px] xl:h-[247px] 2xl:w-[450px] 2xl:h-[347px]">
-            <Image
-              src="/logo-final.avif"
-              alt="Les Jardins d'Alexandre"
-              fill
-              className="drop-shadow-2xl object-contain"
-            />
-          </div>
-        </div>
-        
         {/* Image on full background */}
         <div className="absolute inset-0 z-0 hidden lg:block overflow-hidden">
           <Image
@@ -80,29 +68,47 @@ export default async function HomePage() {
           />
         </div>
         
-        <div className="relative z-10 text-center text-white px-4 max-w-4xl lg:mr-[280px] xl:mr-0">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            {siteConfig.name}
-          </h1>
-          <p className="text-2xl md:text-3xl mb-8 font-light">
-            {slogan}
-          </p>
-          <p className="text-lg md:text-xl mb-10 text-gray-100">
-            Paysagiste pour terrasses, jardins et élagage en Île-de-France
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/realisations"
-              className="bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg"
-            >
-              Voir nos réalisations
-            </Link>
-            <Link
-              href="/contact"
-              className="bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors text-lg border-2 border-white"
-            >
-              Nous contacter
-            </Link>
+        {/* Container with flexbox for logo + text on laptop */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center lg:items-center lg:justify-between gap-8">
+            {/* Logo à gauche - responsive size */}
+            <div className="flex-shrink-0 hidden lg:block">
+              <div className="relative w-[250px] h-[193px] xl:w-[350px] xl:h-[270px] 2xl:w-[450px] 2xl:h-[347px]">
+                <Image
+                  src="/logo-final.avif"
+                  alt="Les Jardins d'Alexandre"
+                  fill
+                  className="drop-shadow-2xl object-contain"
+                />
+              </div>
+            </div>
+            
+            {/* Text content on the right */}
+            <div className="text-center lg:text-left text-white flex-1 lg:max-w-2xl xl:max-w-3xl">
+              <h1 className="text-5xl md:text-6xl lg:text-4xl xl:text-6xl font-bold mb-6">
+                {siteConfig.name}
+              </h1>
+              <p className="text-2xl md:text-3xl lg:text-2xl xl:text-3xl mb-8 font-light">
+                {slogan}
+              </p>
+              <p className="text-lg md:text-xl mb-10 text-gray-100">
+                Paysagiste pour terrasses, jardins et élagage en Île-de-France
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Link
+                  href="/realisations"
+                  className="bg-white text-primary-700 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors text-lg"
+                >
+                  Voir nos réalisations
+                </Link>
+                <Link
+                  href="/contact"
+                  className="bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors text-lg border-2 border-white"
+                >
+                  Nous contacter
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -60,6 +60,8 @@ interface Settings {
   // Page À propos - Notre Expertise
   aboutExpertiseTitle: string
   aboutExpertiseContent: string
+  // Page Réalisations
+  realisationsSlogan: string
 }
 
 export default function AdminSettingsPage() {
@@ -126,6 +128,8 @@ export default function AdminSettingsPage() {
     // Page À propos - Notre Expertise
     aboutExpertiseTitle: '',
     aboutExpertiseContent: '',
+    // Page Réalisations
+    realisationsSlogan: '',
   })
 
   useEffect(() => {
@@ -191,6 +195,8 @@ export default function AdminSettingsPage() {
           // Page À propos - Notre Expertise
           aboutExpertiseTitle: data.find((s: any) => s.key === 'aboutExpertiseTitle')?.value || 'Notre Expertise',
           aboutExpertiseContent: data.find((s: any) => s.key === 'aboutExpertiseContent')?.value || '<ul><li>Conception paysagère et plans d\'aménagement</li><li>Maîtrise des techniques de plantation et d\'arrosage</li></ul>',
+          // Page Réalisations
+          realisationsSlogan: data.find((s: any) => s.key === 'realisationsSlogan')?.value || 'Découvrez notre portfolio de projets d\'aménagements extérieurs',
         }
         setSettings(settingsObj)
       } catch (err) {
@@ -335,6 +341,7 @@ export default function AdminSettingsPage() {
                 { id: 'general', label: 'Informations générales' },
                 { id: 'accueil', label: 'Page Accueil' },
                 { id: 'services', label: 'Page Services' },
+                { id: 'realisations', label: 'Page Réalisations' },
                 { id: 'apropos', label: 'Page À propos' },
               ].map((section) => (
                 <a
@@ -1227,6 +1234,29 @@ export default function AdminSettingsPage() {
           </div>
           </div>
 
+          {/* Page Réalisations Section */}
+          <div id="realisations" className="scroll-mt-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b">Page Réalisations</h2>
+            <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-200">
+              <div>
+                <label htmlFor="realisationsSlogan" className="block text-sm font-medium text-gray-700 mb-2">
+                  Slogan / Sous-titre
+                </label>
+                <input
+                  type="text"
+                  id="realisationsSlogan"
+                  value={settings.realisationsSlogan}
+                  onChange={(e) => setSettings({ ...settings, realisationsSlogan: e.target.value })}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                  placeholder="Découvrez notre portfolio de projets d'aménagements extérieurs"
+                />
+                <p className="text-sm text-gray-500 mt-1">
+                  Ce texte apparaît sous le titre "Nos Réalisations"
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Page À propos Section */}
           <div id="apropos" className="scroll-mt-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 pb-2 border-b">Page À propos</h2>
@@ -1715,6 +1745,34 @@ export default function AdminSettingsPage() {
             </Link>
           </div>
         </form>
+
+          {/* Bouton de sauvegarde flottant */}
+          <button
+            type="button"
+            onClick={(e) => {
+              const form = document.querySelector('form') as HTMLFormElement
+              if (form) {
+                form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }))
+              }
+            }}
+            disabled={isSaving}
+            className="fixed bottom-8 right-8 bg-primary-600 text-white p-4 rounded-full shadow-2xl hover:bg-primary-700 transition-all hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed z-50 group"
+            title="Enregistrer les paramètres"
+          >
+            {isSaving ? (
+              <svg className="animate-spin h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            )}
+            <span className="absolute right-full mr-3 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-sm px-3 py-1 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+              {isSaving ? 'Enregistrement...' : 'Enregistrer'}
+            </span>
+          </button>
           </div>
         </div>
       </main>

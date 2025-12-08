@@ -29,14 +29,23 @@ export async function PUT(request: Request) {
 
     const body = await request.json()
 
+    // Map frontend field names to database keys
+    const keyMapping: Record<string, string> = {
+      email: 'contact_email',
+      phone: 'contact_phone',
+      siteName: 'site_name',
+      siteSlogan: 'site_slogan',
+    }
+
     // Update or create each setting
-    const updates = Object.entries(body).map(([key, value]) =>
-      prisma.setting.upsert({
-        where: { key },
+    const updates = Object.entries(body).map(([key, value]) => {
+      const dbKey = keyMapping[key] || key
+      return prisma.setting.upsert({
+        where: { key: dbKey },
         update: { value: value as string },
-        create: { key, value: value as string },
+        create: { key: dbKey, value: value as string },
       })
-    )
+    })
 
     await Promise.all(updates)
 

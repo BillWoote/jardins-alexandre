@@ -3,6 +3,7 @@
 import { signIn } from 'next-auth/react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function AdminLoginPage() {
   const router = useRouter()
@@ -40,13 +41,20 @@ export default function AdminLoginPage() {
       <div className="max-w-md w-full space-y-8">
         <div>
           <div className="flex justify-center">
-            <div className="text-6xl">🌳</div>
+            <div className="relative w-[300px] h-[231px]">
+              <Image
+                src="/logo-final.avif"
+                alt="Les Jardins d'Alexandre"
+                fill
+                className="object-contain"
+              />
+            </div>
           </div>
           <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
             Administration
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Les Jardins d'Alexandre
+            Espace réservé
           </p>
         </div>
 

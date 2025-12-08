@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { z } from 'zod'
 import { sendContactEmail } from '@/lib/email'
+import { prisma } from '@/lib/prisma'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Le nom doit contenir au moins 2 caractères'),
@@ -22,6 +23,13 @@ export async function POST(request: Request) {
     const validatedData = contactSchema.parse(body)
     console.log('✅ Data validated successfully')
 
+    // Récupérer l'email de contact depuis la base de données
+    const settings = await prisma.setting.findMany()
+    const settingsMap = Object.fromEntries(
+      settings.map(s => [s.key, s.value])
+    )
+    const contactEmail = settingsMap.contactEmail || process.env.CONTACT_EMAIL
+
     // Send email
     try {
       await sendContactEmail({
@@ -30,7 +38,7 @@ export async function POST(request: Request) {
         phone: validatedData.phone,
         service: validatedData.service,
         message: validatedData.message,
-      })
+      }, contactEmail)
       console.log('✅ Email sent successfully')
     } catch (emailError) {
       console.error('❌ Email sending failed:', emailError)
