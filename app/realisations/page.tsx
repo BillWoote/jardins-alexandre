@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description: 'Découvrez notre portfolio de projets d\'aménagements extérieurs : terrasses, jardins et élagage.',
 }
 
+// Désactiver le cache pour que les modifications admin soient visibles immédiatement
+export const revalidate = 0
+
 export default async function RealisationsPage() {
   const projects = await prisma.project.findMany({
     where: { published: true },

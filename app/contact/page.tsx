@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description: 'Contactez Les Jardins d\'Alexandre pour votre projet d\'aménagement extérieur.',
 }
 
+// Désactiver le cache pour que les modifications admin soient visibles immédiatement
+export const revalidate = 0
+
 export default async function ContactPage() {
   const settings = await prisma.setting.findMany()
   const settingsMap = Object.fromEntries(

@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description: 'Découvrez Les Jardins d\'Alexandre, votre paysagiste professionnel en Île-de-France.',
 }
 
+// Désactiver le cache pour que les modifications admin soient visibles immédiatement
+export const revalidate = 0
+
 export default async function AboutPage() {
   // Fetch settings from database
   const settings = await prisma.setting.findMany()
