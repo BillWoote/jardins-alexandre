@@ -7,6 +7,11 @@ import PageHero from '@/components/PageHero'
 export const revalidate = 0 // Disable caching for this page
 export const dynamic = 'force-dynamic' // Force dynamic rendering
 
+// Helper function to strip HTML tags
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim()
+}
+
 export default async function HomePage() {
   // Fetch settings from database
   const settings = await prisma.setting.findMany({
@@ -17,6 +22,8 @@ export default async function HomePage() {
   )
   
   const slogan = settingsMap.siteSlogan || settingsMap.site_slogan || siteConfig.slogan
+  const descriptionRaw = settingsMap.description || siteConfig.description
+  const description = stripHtml(descriptionRaw)
   const phone = settingsMap.phone || settingsMap.contact_phone || siteConfig.contact.phone
   
   // Get service images for home page
@@ -84,15 +91,15 @@ export default async function HomePage() {
             </div>
             
             {/* Text content on the right */}
-            <div className="text-center lg:text-left text-white flex-1 lg:max-w-2xl xl:max-w-3xl">
-              <h1 className="text-5xl md:text-6xl lg:text-4xl xl:text-6xl font-bold mb-6">
+            <div className="text-center lg:text-left text-white flex-1 lg:max-w-2xl xl:max-w-3xl px-4">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-4xl xl:text-6xl font-bold mb-6 leading-tight">
                 {siteConfig.name}
               </h1>
-              <p className="text-2xl md:text-3xl lg:text-2xl xl:text-3xl mb-8 font-light">
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl mb-8 font-light hidden sm:block">
                 {slogan}
               </p>
-              <p className="text-lg md:text-xl mb-10 text-gray-100">
-                Paysagiste pour terrasses, jardins et élagage en Île-de-France
+              <p className="text-base sm:text-lg md:text-xl mb-10 text-gray-100">
+                {description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Link

@@ -103,24 +103,6 @@
   ],
   "settings": [
     {
-      "id": "cmi93exwt0004bsd6rwtmb9b0",
-      "key": "site_name",
-      "value": "Les Jardins d'Alexandre",
-      "type": "text"
-    },
-    {
-      "id": "cmi93exwv0006bsd6ubi5jhze",
-      "key": "contact_phone",
-      "value": "+33 6 12 34 56 78",
-      "type": "text"
-    },
-    {
-      "id": "cmi93exww0007bsd6dkyg1fmb",
-      "key": "contact_email",
-      "value": "contact@jardinsalexandre.fr",
-      "type": "text"
-    },
-    {
       "id": "cmi93exww0008bsd6nnjrh83o",
       "key": "facebook_url",
       "value": "https://facebook.com/jardinsalexandre",
@@ -229,12 +211,6 @@
       "type": "text"
     },
     {
-      "id": "cmi93exwu0005bsd6o736g5h3",
-      "key": "site_slogan",
-      "value": "Du premier trait à la dernière coupe, un accompagnement professionnel pour vos jardins.",
-      "type": "text"
-    },
-    {
       "id": "cmikkxr8n000fbs0n3aev9m1x",
       "key": "siteName",
       "value": "Les Jardins d'Alexandre",
@@ -247,39 +223,15 @@
       "type": "text"
     },
     {
-      "id": "cmikkxr8l0003bs0nifzmcvmg",
-      "key": "homeJardinDesc",
-      "value": "<p>Votre jardin, façonné avec maîtrise, harmonie et soin.</p>",
+      "id": "cmikkxr8l000ebs0nkv90uzpo",
+      "key": "phone",
+      "value": "+33 6 12 34 56 78",
       "type": "text"
     },
     {
-      "id": "cmikkxr8l000bbs0nz35ejgr1",
-      "key": "homeTerrasseDesc",
-      "value": "<p>Des terrasses où l’élégance prend place et où vos espaces respirent.</p>",
-      "type": "text"
-    },
-    {
-      "id": "cmikkxr850000bs0nbs80ftrk",
-      "key": "address",
-      "value": "",
-      "type": "text"
-    },
-    {
-      "id": "cmikkxr8l0008bs0n020xjbgl",
-      "key": "serviceArea",
-      "value": "",
-      "type": "text"
-    },
-    {
-      "id": "setting-terrasse-img",
-      "key": "serviceTerrasseImage",
-      "value": "/accueil-terrasse.avif",
-      "type": "text"
-    },
-    {
-      "id": "cmikkxr8l0001bs0nu3ejbab0",
-      "key": "email",
-      "value": "contact@jardinsalexandre.fr",
+      "id": "cmi93exwv0006bsd6ubi5jhze",
+      "key": "contact_phone",
+      "value": "+33 6 12 34 56 78",
       "type": "text"
     },
     {
@@ -289,15 +241,21 @@
       "type": "text"
     },
     {
-      "id": "cmikkxrd0000hbs0ndly0qofg",
-      "key": "homeJardinTitle",
-      "value": "Jardins & Aménagements",
+      "id": "cmi93exww0007bsd6dkyg1fmb",
+      "key": "contact_email",
+      "value": "ccottrez@stream-management.fr",
       "type": "text"
     },
     {
-      "id": "cmikkxr8l000ebs0nkv90uzpo",
-      "key": "phone",
-      "value": "+33 6 12 34 56 78",
+      "id": "cmikkxr8n000gbs0nsx1z82kw",
+      "key": "description",
+      "value": "<p>Paysagiste professionnel spécialisé en terrasse, jardin et élagage en île-de-france</p>",
+      "type": "text"
+    },
+    {
+      "id": "cmikkxr8l0008bs0n020xjbgl",
+      "key": "serviceArea",
+      "value": "",
       "type": "text"
     },
     {
@@ -307,15 +265,9 @@
       "type": "text"
     },
     {
-      "id": "cmikkxr8n000gbs0nsx1z82kw",
-      "key": "description",
-      "value": "<p><br></p>",
-      "type": "text"
-    },
-    {
-      "id": "cmikkxr8l0004bs0njhvmcmy6",
-      "key": "homeEntretienImage",
-      "value": "/accueil-jardin.avif",
+      "id": "cmikkxr850000bs0nbs80ftrk",
+      "key": "address",
+      "value": "57 rue d'Amsterdam Paris 8",
       "type": "text"
     },
     {
@@ -325,9 +277,51 @@
       "type": "image"
     },
     {
+      "id": "cmi93exwt0004bsd6rwtmb9b0",
+      "key": "site_name",
+      "value": "Les Jardins d'Alexandre",
+      "type": "text"
+    },
+    {
+      "id": "cmikkxrd0000hbs0ndly0qofg",
+      "key": "homeJardinTitle",
+      "value": "Jardins & Aménagements",
+      "type": "text"
+    },
+    {
+      "id": "setting-terrasse-img",
+      "key": "serviceTerrasseImage",
+      "value": "/accueil-terrasse.avif",
+      "type": "text"
+    },
+    {
+      "id": "cmikkxr8l0004bs0njhvmcmy6",
+      "key": "homeEntretienImage",
+      "value": "/accueil-jardin.avif",
+      "type": "text"
+    },
+    {
       "id": "cmikk1jtt000hbs4lbcxsn3xj",
       "key": "aboutHistoryTitle",
       "value": "Notre Histoire",
+      "type": "text"
+    },
+    {
+      "id": "cmikkxr8l0003bs0nifzmcvmg",
+      "key": "homeJardinDesc",
+      "value": "<p>Votre jardin, façonné avec maîtrise, harmonie et soin.</p>",
+      "type": "text"
+    },
+    {
+      "id": "cmi93exwu0005bsd6o736g5h3",
+      "key": "site_slogan",
+      "value": "Du premier trait à la dernière coupe, un accompagnement professionnel pour vos jardins.",
+      "type": "text"
+    },
+    {
+      "id": "cmikkxr8l000bbs0nz35ejgr1",
+      "key": "homeTerrasseDesc",
+      "value": "<p>Des terrasses où l’élégance prend place et où vos espaces respirent.</p>",
       "type": "text"
     },
     {
@@ -340,6 +334,12 @@
       "id": "cmikkxr8l0009bs0nyplhdt9n",
       "key": "serviceEntretienContent",
       "value": "<p>Nous entretenons vos terrasses et jardins avec précision et régularité, pour préserver leur beauté, leur équilibre et leur éclat saison après saison.</p><p><br></p><h3>Entretien des jardins</h3><ol><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Tonte, désherbage et entretien des massifs</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Taille des arbustes, haies et végétaux saisonniers</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Soins des plantes : fertilisation, traitements biologiques, paillage</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Suivi sanitaire des végétaux et conseils personnalisés</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Ramassage des feuilles et nettoyage des zones végétalisées</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Maintenance des systèmes d’arrosage : réglages et optimisation</li></ol><h3>Entretien des terrasses</h3><ol><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Nettoyage complet des terrasses : bois, composite, pierre ou carrelage</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Entretien des surfaces : dégrisage, protection et traitement du bois</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Nettoyage des dallages, joints et revêtements</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Mise en valeur des espaces : pots, jardinières, végétaux de terrasse</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Préparation saisonnière : printemps / automne</li></ol><h3>Services complémentaires</h3><ol><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Contrats d’entretien réguliers (hebdomadaire, mensuel ou saisonnier)</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Interventions ponctuelles selon vos besoins</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Conseils d’entretien personnalisés pour un extérieur durable et impeccable</li></ol>",
+      "type": "text"
+    },
+    {
+      "id": "cmiw2e2nx0018bs3vau01for9",
+      "key": "realisationsSlogan",
+      "value": "Rien ne témoigne mieux de notre savoir-faire que nos réalisations.",
       "type": "text"
     },
     {
@@ -397,15 +397,15 @@
       "type": "text"
     },
     {
-      "id": "cmikkxrg50011bs0n1faim4hz",
-      "key": "homeServicesSubtitle",
-      "value": "<p>Des services professionnels pour tous vos projets d'aménagement extérieur</p>",
-      "type": "text"
-    },
-    {
       "id": "cmikkxrg6001bbs0n9yg14o16",
       "key": "homeElagageImage",
       "value": "/accueil-elagage.avif",
+      "type": "text"
+    },
+    {
+      "id": "cmikkxrg50011bs0n1faim4hz",
+      "key": "homeServicesSubtitle",
+      "value": "<p>Des services professionnels pour tous vos projets d'aménagement extérieur</p>",
       "type": "text"
     },
     {
@@ -415,16 +415,16 @@
       "type": "richtext"
     },
     {
-      "id": "cmikk1jtu000jbs4l6zb5efhh",
-      "key": "aboutHistoryImage",
-      "value": "/uploads/1764873912545-logo-final.avif",
-      "type": "image"
-    },
-    {
       "id": "cmikkxrg50019bs0ny6p96mx0",
       "key": "serviceElagageContent",
       "value": "<p><span style=\"background-color: transparent;\">Nous avons mis en place une équipe d'</span><strong style=\"background-color: transparent;\">arboristes grimpeurs</strong><span style=\"background-color: transparent;\"> capables de soigner vos arbres selon différents types de tailles.</span></p><p><span style=\"background-color: transparent;\">Cette discipline demande une grande maitrise.</span></p><p><span style=\"background-color: transparent;\">Nous assurons également le </span><strong style=\"background-color: transparent;\">démontage et l'abattage </strong><span style=\"background-color: transparent;\">d'arbres dangereux ou morts dans des endroits exigus.</span></p><p><br></p><ol><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Élagage et taille douce</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Taille de formation ou de réduction</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Abattage d’arbres (en sécurité, par démontage si nécessaire)</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Soins des arbres et diagnostic de leur état</li><li data-list=\"bullet\"><span class=\"ql-ui\" contenteditable=\"false\"></span>Débroussaillage et sécurisation des zones boisées</li></ol>",
       "type": "text"
+    },
+    {
+      "id": "cmikk1jtu000jbs4l6zb5efhh",
+      "key": "aboutHistoryImage",
+      "value": "/uploads/1764873912545-logo-final.avif",
+      "type": "image"
     },
     {
       "id": "cmikk1jtz000pbs4lg151od9h",
@@ -487,15 +487,15 @@
       "type": "text"
     },
     {
-      "id": "cmikk1jtp000abs4l5z8a5vqr",
-      "key": "serviceTerrasseTitle",
-      "value": "Terrasses Urbaines",
-      "type": "text"
-    },
-    {
       "id": "cmikkxrg6001dbs0nuv5bbjkk",
       "key": "homeJardinImage",
       "value": "/accueil-jardin.avif",
+      "type": "text"
+    },
+    {
+      "id": "cmikk1jtp000abs4l5z8a5vqr",
+      "key": "serviceTerrasseTitle",
+      "value": "Terrasses Urbaines",
       "type": "text"
     },
     {
@@ -573,5 +573,5 @@
       "createdAt": "2025-11-21T16:47:03.732Z"
     }
   ],
-  "exportedAt": "2025-12-06T08:05:38.859Z"
+  "exportedAt": "2025-12-08T22:36:21.232Z"
 }

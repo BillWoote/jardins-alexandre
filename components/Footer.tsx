@@ -5,12 +5,19 @@ interface FooterProps {
   settings?: { [key: string]: string }
 }
 
+// Helper function to strip HTML tags
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim()
+}
+
 export default function Footer({ settings = {} }: FooterProps) {
   const currentYear = new Date().getFullYear()
   
   // Use settings from database or fallback to siteConfig
   const siteName = settings.siteName || settings.site_name || siteConfig.name
   const siteSlogan = settings.siteSlogan || settings.site_slogan || siteConfig.slogan
+  const descriptionRaw = settings.description || siteConfig.description
+  const description = stripHtml(descriptionRaw)
   const phone = settings.phone || settings.contact_phone || siteConfig.contact.phone
   const email = settings.email || settings.contact_email || siteConfig.contact.email
   const address = settings.address || siteConfig.contact.address
@@ -38,8 +45,7 @@ export default function Footer({ settings = {} }: FooterProps) {
               {siteSlogan}
             </p>
             <p className="text-gray-400 text-sm">
-              Paysagiste professionnel spécialisé dans l'aménagement de terrasses,
-              la création de jardins et l'élagage d'arbres en Île-de-France.
+              {description}
             </p>
           </div>
 
