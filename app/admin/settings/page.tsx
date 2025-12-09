@@ -294,6 +294,9 @@ export default function AdminSettingsPage() {
         throw new Error('Erreur lors de la sauvegarde')
       }
 
+      // Recharger les paramètres depuis le serveur pour afficher les valeurs à jour
+      await fetchSettings()
+      
       setSuccess(true)
       setTimeout(() => setSuccess(false), 3000)
     } catch (err) {
