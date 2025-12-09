@@ -23,12 +23,13 @@ export async function POST(request: Request) {
     const validatedData = contactSchema.parse(body)
     console.log('✅ Data validated successfully')
 
-    // Récupérer l'email de contact depuis la base de données
+    // Récupérer l'email de contact depuis la base de données (prioritaire sur .env)
     const settings = await prisma.setting.findMany()
     const settingsMap = Object.fromEntries(
       settings.map(s => [s.key, s.value])
     )
-    const contactEmail = settingsMap.contactEmail || process.env.CONTACT_EMAIL
+    const contactEmail = settingsMap.contact_email || process.env.CONTACT_EMAIL || 'contact@jardinsalexandre.fr'
+    console.log('📧 Sending to:', contactEmail)
 
     // Send email
     try {
