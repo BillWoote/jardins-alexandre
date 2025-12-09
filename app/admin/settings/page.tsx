@@ -132,80 +132,81 @@ export default function AdminSettingsPage() {
     realisationsSlogan: '',
   })
 
-  useEffect(() => {
-    const fetchSettings = async () => {
-      try {
-        const response = await fetch('/api/admin/settings')
-        if (!response.ok) throw new Error('Erreur de chargement')
-        const data = await response.json()
-        
-        // Convert settings array to object
-        const settingsObj: Settings = {
-          siteName: data.find((s: any) => s.key === 'site_name')?.value || '',
-          siteSlogan: data.find((s: any) => s.key === 'site_slogan')?.value || '',
-          phone: data.find((s: any) => s.key === 'contact_phone')?.value || '',
-          email: data.find((s: any) => s.key === 'contact_email')?.value || '',
-          address: data.find((s: any) => s.key === 'address')?.value || '',
-          serviceArea: data.find((s: any) => s.key === 'serviceArea')?.value || '',
-          description: data.find((s: any) => s.key === 'description')?.value || '',
-          serviceTerrasseImage: data.find((s: any) => s.key === 'serviceTerrasseImage')?.value || '/accueil-terrasse.avif',
-          serviceJardinImage: data.find((s: any) => s.key === 'serviceJardinImage')?.value || '/accueil-jardin.avif',
-          serviceElagageImage: data.find((s: any) => s.key === 'serviceElagageImage')?.value || '/accueil-elagage.avif',
-          homeTerrasseImage: data.find((s: any) => s.key === 'homeTerrasseImage')?.value || '/accueil-terrasse.avif',
-          homeJardinImage: data.find((s: any) => s.key === 'homeJardinImage')?.value || '/accueil-jardin.avif',
-          homeElagageImage: data.find((s: any) => s.key === 'homeElagageImage')?.value || '/accueil-elagage.avif',
-          homeEntretienImage: data.find((s: any) => s.key === 'homeEntretienImage')?.value || '/accueil-jardin.avif',
-          homeTerrasseTitle: data.find((s: any) => s.key === 'homeTerrasseTitle')?.value || 'Terrasses Urbaines',
-          homeJardinTitle: data.find((s: any) => s.key === 'homeJardinTitle')?.value || 'Jardins & Aménagements',
-          homeElagageTitle: data.find((s: any) => s.key === 'homeElagageTitle')?.value || 'Élagage & Entretien',
-          homeEntretienTitle: data.find((s: any) => s.key === 'homeEntretienTitle')?.value || 'Entretien',
-          homeTerrasseDesc: data.find((s: any) => s.key === 'homeTerrasseDesc')?.value || 'Aménagement et création de terrasses élégantes en milieu urbain',
-          homeJardinDesc: data.find((s: any) => s.key === 'homeJardinDesc')?.value || 'Conception et réalisation de jardins sur mesure',
-          homeElagageDesc: data.find((s: any) => s.key === 'homeElagageDesc')?.value || 'Taille et entretien professionnel de vos arbres',
-          homeEntretienDesc: data.find((s: any) => s.key === 'homeEntretienDesc')?.value || 'Entretien régulier de vos espaces verts',
-          homeServicesSubtitle: data.find((s: any) => s.key === 'homeServicesSubtitle')?.value || 'Des services professionnels pour tous vos projets d\'aménagement extérieur',
-          servicesPageTitle: data.find((s: any) => s.key === 'servicesPageTitle')?.value || 'Nos Services',
-          servicesPageSubtitle: data.find((s: any) => s.key === 'servicesPageSubtitle')?.value || 'Des solutions complètes pour tous vos projets d\'aménagement extérieur',
-          serviceTerrasseTitle: data.find((s: any) => s.key === 'serviceTerrasseTitle')?.value || 'Terrasses Urbaines',
-          serviceTerrasseContent: data.find((s: any) => s.key === 'serviceTerrasseContent')?.value || '<p>Création et aménagement de terrasses sur mesure...</p>',
-          serviceJardinTitle: data.find((s: any) => s.key === 'serviceJardinTitle')?.value || 'Jardins & Aménagements',
-          serviceJardinContent: data.find((s: any) => s.key === 'serviceJardinContent')?.value || '<p>Conception et réalisation de jardins...</p>',
-          serviceElagageTitle: data.find((s: any) => s.key === 'serviceElagageTitle')?.value || 'Élagage & Entretien',
-          serviceElagageContent: data.find((s: any) => s.key === 'serviceElagageContent')?.value || '<p>Taille et entretien professionnel...</p>',
-          serviceEntretienTitle: data.find((s: any) => s.key === 'serviceEntretienTitle')?.value || 'Entretien',
-          serviceEntretienContent: data.find((s: any) => s.key === 'serviceEntretienContent')?.value || '<p>Services d\'entretien régulier de vos espaces verts...</p>',
-          serviceEntretienImage: data.find((s: any) => s.key === 'serviceEntretienImage')?.value || '/accueil-jardin.avif',
-          // Page À propos - Notre Histoire
-          aboutHistoryImage: data.find((s: any) => s.key === 'aboutHistoryImage')?.value || '/accueil-LOGO.avif',
-          aboutHistoryTitle: data.find((s: any) => s.key === 'aboutHistoryTitle')?.value || 'Notre Histoire',
-          aboutHistoryContent: data.find((s: any) => s.key === 'aboutHistoryContent')?.value || '',
-          // Page À propos - Nos Valeurs
-          aboutValue1Image: data.find((s: any) => s.key === 'aboutValue1Image')?.value || '',
-          aboutValue1Title: data.find((s: any) => s.key === 'aboutValue1Title')?.value || 'Créativité & Sur-mesure',
-          aboutValue1Desc: data.find((s: any) => s.key === 'aboutValue1Desc')?.value || 'Chaque projet est conçu selon vos goûts et vos contraintes pour créer un espace qui vous ressemble.',
-          aboutValue2Image: data.find((s: any) => s.key === 'aboutValue2Image')?.value || '',
-          aboutValue2Title: data.find((s: any) => s.key === 'aboutValue2Title')?.value || 'Respect de l\'environnement',
-          aboutValue2Desc: data.find((s: any) => s.key === 'aboutValue2Desc')?.value || 'Nous privilégions des solutions écologiques et des végétaux adaptés au climat local.',
-          aboutValue3Image: data.find((s: any) => s.key === 'aboutValue3Image')?.value || '',
-          aboutValue3Title: data.find((s: any) => s.key === 'aboutValue3Title')?.value || 'Qualité & Professionnalisme',
-          aboutValue3Desc: data.find((s: any) => s.key === 'aboutValue3Desc')?.value || 'Un travail soigné, des matériaux de qualité et le respect des délais convenus.',
-          aboutValue4Image: data.find((s: any) => s.key === 'aboutValue4Image')?.value || '',
-          aboutValue4Title: data.find((s: any) => s.key === 'aboutValue4Title')?.value || 'Accompagnement personnalisé',
-          aboutValue4Desc: data.find((s: any) => s.key === 'aboutValue4Desc')?.value || 'Nous vous conseillons à chaque étape, de la conception à la réalisation de votre projet.',
-          // Page À propos - Notre Expertise
-          aboutExpertiseTitle: data.find((s: any) => s.key === 'aboutExpertiseTitle')?.value || 'Notre Expertise',
-          aboutExpertiseContent: data.find((s: any) => s.key === 'aboutExpertiseContent')?.value || '<ul><li>Conception paysagère et plans d\'aménagement</li><li>Maîtrise des techniques de plantation et d\'arrosage</li></ul>',
-          // Page Réalisations
-          realisationsSlogan: data.find((s: any) => s.key === 'realisationsSlogan')?.value || 'Découvrez notre portfolio de projets d\'aménagements extérieurs',
-        }
-        setSettings(settingsObj)
-      } catch (err) {
-        setError('Erreur de chargement des paramètres')
-      } finally {
-        setIsLoading(false)
+  // Fonction pour charger les paramètres depuis le serveur
+  const fetchSettings = async () => {
+    try {
+      const response = await fetch('/api/admin/settings')
+      if (!response.ok) throw new Error('Erreur de chargement')
+      const data = await response.json()
+      
+      // Convert settings array to object
+      const settingsObj: Settings = {
+        siteName: data.find((s: any) => s.key === 'site_name')?.value || '',
+        siteSlogan: data.find((s: any) => s.key === 'site_slogan')?.value || '',
+        phone: data.find((s: any) => s.key === 'contact_phone')?.value || '',
+        email: data.find((s: any) => s.key === 'contact_email')?.value || '',
+        address: data.find((s: any) => s.key === 'address')?.value || '',
+        serviceArea: data.find((s: any) => s.key === 'serviceArea')?.value || '',
+        description: data.find((s: any) => s.key === 'description')?.value || '',
+        serviceTerrasseImage: data.find((s: any) => s.key === 'serviceTerrasseImage')?.value || '/accueil-terrasse.avif',
+        serviceJardinImage: data.find((s: any) => s.key === 'serviceJardinImage')?.value || '/accueil-jardin.avif',
+        serviceElagageImage: data.find((s: any) => s.key === 'serviceElagageImage')?.value || '/accueil-elagage.avif',
+        homeTerrasseImage: data.find((s: any) => s.key === 'homeTerrasseImage')?.value || '/accueil-terrasse.avif',
+        homeJardinImage: data.find((s: any) => s.key === 'homeJardinImage')?.value || '/accueil-jardin.avif',
+        homeElagageImage: data.find((s: any) => s.key === 'homeElagageImage')?.value || '/accueil-elagage.avif',
+        homeEntretienImage: data.find((s: any) => s.key === 'homeEntretienImage')?.value || '/accueil-jardin.avif',
+        homeTerrasseTitle: data.find((s: any) => s.key === 'homeTerrasseTitle')?.value || 'Terrasses Urbaines',
+        homeJardinTitle: data.find((s: any) => s.key === 'homeJardinTitle')?.value || 'Jardins & Aménagements',
+        homeElagageTitle: data.find((s: any) => s.key === 'homeElagageTitle')?.value || 'Élagage & Entretien',
+        homeEntretienTitle: data.find((s: any) => s.key === 'homeEntretienTitle')?.value || 'Entretien',
+        homeTerrasseDesc: data.find((s: any) => s.key === 'homeTerrasseDesc')?.value || 'Aménagement et création de terrasses élégantes en milieu urbain',
+        homeJardinDesc: data.find((s: any) => s.key === 'homeJardinDesc')?.value || 'Conception et réalisation de jardins sur mesure',
+        homeElagageDesc: data.find((s: any) => s.key === 'homeElagageDesc')?.value || 'Taille et entretien professionnel de vos arbres',
+        homeEntretienDesc: data.find((s: any) => s.key === 'homeEntretienDesc')?.value || 'Entretien régulier de vos espaces verts',
+        homeServicesSubtitle: data.find((s: any) => s.key === 'homeServicesSubtitle')?.value || 'Des services professionnels pour tous vos projets d\'aménagement extérieur',
+        servicesPageTitle: data.find((s: any) => s.key === 'servicesPageTitle')?.value || 'Nos Services',
+        servicesPageSubtitle: data.find((s: any) => s.key === 'servicesPageSubtitle')?.value || 'Des solutions complètes pour tous vos projets d\'aménagement extérieur',
+        serviceTerrasseTitle: data.find((s: any) => s.key === 'serviceTerrasseTitle')?.value || 'Terrasses Urbaines',
+        serviceTerrasseContent: data.find((s: any) => s.key === 'serviceTerrasseContent')?.value || '<p>Création et aménagement de terrasses sur mesure...</p>',
+        serviceJardinTitle: data.find((s: any) => s.key === 'serviceJardinTitle')?.value || 'Jardins & Aménagements',
+        serviceJardinContent: data.find((s: any) => s.key === 'serviceJardinContent')?.value || '<p>Conception et réalisation de jardins...</p>',
+        serviceElagageTitle: data.find((s: any) => s.key === 'serviceElagageTitle')?.value || 'Élagage & Entretien',
+        serviceElagageContent: data.find((s: any) => s.key === 'serviceElagageContent')?.value || '<p>Taille et entretien professionnel...</p>',
+        serviceEntretienTitle: data.find((s: any) => s.key === 'serviceEntretienTitle')?.value || 'Entretien',
+        serviceEntretienContent: data.find((s: any) => s.key === 'serviceEntretienContent')?.value || '<p>Services d\'entretien régulier de vos espaces verts...</p>',
+        serviceEntretienImage: data.find((s: any) => s.key === 'serviceEntretienImage')?.value || '/accueil-jardin.avif',
+        // Page À propos - Notre Histoire
+        aboutHistoryImage: data.find((s: any) => s.key === 'aboutHistoryImage')?.value || '/accueil-LOGO.avif',
+        aboutHistoryTitle: data.find((s: any) => s.key === 'aboutHistoryTitle')?.value || 'Notre Histoire',
+        aboutHistoryContent: data.find((s: any) => s.key === 'aboutHistoryContent')?.value || '',
+        // Page À propos - Nos Valeurs
+        aboutValue1Image: data.find((s: any) => s.key === 'aboutValue1Image')?.value || '',
+        aboutValue1Title: data.find((s: any) => s.key === 'aboutValue1Title')?.value || 'Créativité & Sur-mesure',
+        aboutValue1Desc: data.find((s: any) => s.key === 'aboutValue1Desc')?.value || 'Chaque projet est conçu selon vos goûts et vos contraintes pour créer un espace qui vous ressemble.',
+        aboutValue2Image: data.find((s: any) => s.key === 'aboutValue2Image')?.value || '',
+        aboutValue2Title: data.find((s: any) => s.key === 'aboutValue2Title')?.value || 'Respect de l\'environnement',
+        aboutValue2Desc: data.find((s: any) => s.key === 'aboutValue2Desc')?.value || 'Nous privilégions des solutions écologiques et des végétaux adaptés au climat local.',
+        aboutValue3Image: data.find((s: any) => s.key === 'aboutValue3Image')?.value || '',
+        aboutValue3Title: data.find((s: any) => s.key === 'aboutValue3Title')?.value || 'Qualité & Professionnalisme',
+        aboutValue3Desc: data.find((s: any) => s.key === 'aboutValue3Desc')?.value || 'Un travail soigné, des matériaux de qualité et le respect des délais convenus.',
+        aboutValue4Image: data.find((s: any) => s.key === 'aboutValue4Image')?.value || '',
+        aboutValue4Title: data.find((s: any) => s.key === 'aboutValue4Title')?.value || 'Accompagnement personnalisé',
+        aboutValue4Desc: data.find((s: any) => s.key === 'aboutValue4Desc')?.value || 'Nous vous conseillons à chaque étape, de la conception à la réalisation de votre projet.',
+        // Page À propos - Notre Expertise
+        aboutExpertiseTitle: data.find((s: any) => s.key === 'aboutExpertiseTitle')?.value || 'Notre Expertise',
+        aboutExpertiseContent: data.find((s: any) => s.key === 'aboutExpertiseContent')?.value || '<ul><li>Conception paysagère et plans d\'aménagement</li><li>Maîtrise des techniques de plantation et d\'arrosage</li></ul>',
+        // Page Réalisations
+        realisationsSlogan: data.find((s: any) => s.key === 'realisationsSlogan')?.value || 'Découvrez notre portfolio de projets d\'aménagements extérieurs',
       }
+      setSettings(settingsObj)
+    } catch (err) {
+      setError('Erreur de chargement des paramètres')
+    } finally {
+      setIsLoading(false)
     }
+  }
 
+  useEffect(() => {
     fetchSettings()
   }, [])
 
